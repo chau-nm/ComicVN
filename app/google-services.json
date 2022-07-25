@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "16754148972",
+    "project_id": "comicvn-f7eab",
+    "storage_bucket": "comicvn-f7eab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16754148972:android:22194e366a1cd7f9047a49",
+        "android_client_info": {
+          "package_name": "com.example.comicvn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16754148972-s447pjlrp1f2pa17vokchh9kb7m3pe6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNBM3Uy--t-20_MSIHRm5qt02znfTG4nI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16754148972-s447pjlrp1f2pa17vokchh9kb7m3pe6u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

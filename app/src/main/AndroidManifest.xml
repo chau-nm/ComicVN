@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.comicvn">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ComicVN">
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.ComicVN.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.admin.add.AddComicActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ui.admin.view.AdminComicDetailActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.admin.edit.EditComicActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.admin.add.AddChapterActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.comicdetail.ComicDetailActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.readcomic.ReadComicActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:exported="true"/>
+    </application>
+
+</manifest>

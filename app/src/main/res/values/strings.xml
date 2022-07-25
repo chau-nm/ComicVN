@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ComicVN</string>
+    <string name="add_comic_title">Thêm truyện</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Search</string>
+
+    <string name="menu_home">Trang chủ</string>
+    <string name="menu_admin">Quản lý truyện</string>
+    <string name="menu_login">Đăng nhập</string>
+    <string name="menu_logout">Đăng xuất</string>
+
+    <string name="search_placeholder">Tìm kiếm</string>
+
+    <string name="for_you">Dành cho bạn</string>
+    <string name="new_update">Mới cập nhật</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

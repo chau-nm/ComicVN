@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="title_big">
+
+    </style>
+
+    <style name="title_normal">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="title_small">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="text_normal">
+
+    </style>
+</resources>

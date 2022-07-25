@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/previous_btn"
+        android:title="Trước"/>
+    <item android:id="@+id/next_btn"
+        android:title="Sau"/>
+
+</menu>
