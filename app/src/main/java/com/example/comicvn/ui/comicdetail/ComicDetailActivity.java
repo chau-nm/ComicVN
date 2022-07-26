@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comicvn.R;
+import com.example.comicvn.obj.Caculation;
 import com.example.comicvn.obj.Chapter;
 import com.example.comicvn.obj.Comic;
 import com.example.comicvn.ui.admin.add.AddChapterActivity;
@@ -32,6 +33,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ComicDetailActivity extends AppCompatActivity {
@@ -71,6 +74,8 @@ public class ComicDetailActivity extends AppCompatActivity {
         return comicId;
     }
 
+
+
     private void loadData(){
         comicId = getIntent().getStringExtra("COMICID");
         Query query = databaseReference.child(comicId);
@@ -83,7 +88,7 @@ public class ComicDetailActivity extends AppCompatActivity {
                 Comic comic = snapshot.getValue(Comic.class);
                 comicNameTv.setText(comic.getName());
                 String comicUpdate = comic.getUpdate() != null
-                        ? "Cập nhật lúc " + comic.getUpdate().toString()
+                        ? "Cập nhật " + Caculation.getMessageDate(comic.getUpdate())
                         : "Chưa có chương nào";
                 comicUpdateTv.setText(comicUpdate);
                 comicStateTv.setText(comic.getState());

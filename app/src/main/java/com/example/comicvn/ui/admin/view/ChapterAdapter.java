@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comicvn.R;
+import com.example.comicvn.obj.Caculation;
 import com.example.comicvn.obj.Chapter;
 import com.example.comicvn.ui.readcomic.ReadComicActivity;
 
@@ -39,8 +40,8 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.Holder> 
     @Override
     public void onBindViewHolder(@NonNull ChapterAdapter.Holder holder, int position) {
         holder.chapterNumberTv.setText("Chapter " + chapters.get(position).getNumber());
-        holder.chapterUpdateTv.setText("Cập nhật ngày "
-                + chapters.get(position).getUpdate().toString());
+        holder.chapterUpdateTv.setText("Cập nhật "
+                + Caculation.getMessageDate(chapters.get(position).getUpdate()));
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, ReadComicActivity.class);
             intent.putExtra("COMICID", comicId);
