@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.223" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1835" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/side_nav_bar.xml" value="0.1835" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/activity_add_comic.xml" value="0.358695652173913" />
@@ -12,9 +13,11 @@
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/admin_comic_item_cardview.xml" value="0.24909420289855072" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/app_bar_main.xml" value="0.23125" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/banner_card.xml" value="0.23097826086956522" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/category_btn_cardview.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/category_cardview.xml" value="0.3625" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/category_textview_cardview.xml" value="0.3625" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/chapter_cardview.xml" value="0.3625" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/chose_category_activity.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/comic_detail_activity.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/comic_detail_admin_activity.xml" value="0.25" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/comic_main_cardview.xml" value="0.23097826086956522" />
@@ -22,6 +25,7 @@
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/edit_comic_activity.xml" value="0.2046875" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/for_you_home_layout.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/fragment_admin.xml" value="0.23097826086956522" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/fragment_category.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/fragment_home.xml" value="0.23125" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/login_activity.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/nav_header_main.xml" value="0.23125" />

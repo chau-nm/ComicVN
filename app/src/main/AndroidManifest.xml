@@ -51,6 +51,9 @@
         <activity
             android:name=".ui.search.SearchActivity"
             android:exported="true"/>
+        <activity
+            android:name=".ui.category.ChoseCategoryActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

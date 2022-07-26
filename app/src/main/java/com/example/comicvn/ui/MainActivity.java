@@ -1,5 +1,6 @@
 package com.example.comicvn.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,6 +22,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.comicvn.R;
 import com.example.comicvn.databinding.ActivityMainBinding;
+import com.example.comicvn.ui.category.ChoseCategoryActivity;
 import com.example.comicvn.ui.login.LoginActivity;
 import com.example.comicvn.ui.search.SearchActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView welcomMessage;
     private NavigationView navigationView;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +53,13 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_admin)
+                R.id.nav_home, R.id.nav_admin, R.id.nav_category)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        int menuID = getIntent().getIntExtra("CATEGORY_MENU", -1);
+        if(menuID == R.layout.fragment_category) navController.navigate(R.id.nav_category);
+
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
@@ -73,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.nav_login:
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    return true;
+                case R.id.nav_category:
+                    startActivity(new Intent(MainActivity.this, ChoseCategoryActivity.class));
                     return true;
             }
             return false;

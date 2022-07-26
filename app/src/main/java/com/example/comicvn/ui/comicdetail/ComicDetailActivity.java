@@ -2,7 +2,6 @@ package com.example.comicvn.ui.comicdetail;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -12,17 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comicvn.R;
 import com.example.comicvn.obj.Caculation;
-import com.example.comicvn.obj.Chapter;
 import com.example.comicvn.obj.Comic;
-import com.example.comicvn.ui.admin.add.AddChapterActivity;
-import com.example.comicvn.ui.admin.edit.EditComicActivity;
-import com.example.comicvn.ui.admin.view.CategoryAdapter;
 import com.example.comicvn.ui.admin.view.ChapterAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,11 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class ComicDetailActivity extends AppCompatActivity {
 
@@ -63,6 +53,7 @@ public class ComicDetailActivity extends AppCompatActivity {
         comicContentTv = findViewById(R.id.content_tv);
         comicCoverIV = findViewById(R.id.comic_cover);
         categoriesView = findViewById(R.id.category_comic);
+        categoriesView.setLayoutManager(new GridLayoutManager(this, 3));
         chaptersView = findViewById(R.id.chapters_view);
         chaptersView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         context = this;
@@ -98,7 +89,7 @@ public class ComicDetailActivity extends AppCompatActivity {
                         .load(comic.getCover())
                         .fit()
                         .into(comicCoverIV);
-                categoriesView.setAdapter(new CategoryAdapter(comic.getCategory()));
+                categoriesView.setAdapter(new CategoryAdapter(comic.getCategory(), ComicDetailActivity.this));
                 chaptersView.setAdapter(new ChapterAdapter(comic.getChapters(), context, comicId));
             }
 

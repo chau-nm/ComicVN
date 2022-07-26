@@ -7,6 +7,11 @@
             android:title="@string/menu_home" />
 
         <item
+            android:id="@+id/nav_category"
+            android:icon="@drawable/ic_baseline_category_24"
+            android:title="@string/menu_category" />
+
+        <item
             android:id="@+id/nav_login"
             android:title="@string/menu_login"/>
     </group>

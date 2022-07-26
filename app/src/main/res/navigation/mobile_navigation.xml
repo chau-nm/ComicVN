@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/nav_category"
+        android:name="com.example.comicvn.ui.category.CategoryFragment"
+        android:label="@string/menu_category"
+        tools:layout="@layout/fragment_category" />
+
+    <fragment
         android:id="@+id/nav_admin"
         android:name="com.example.comicvn.ui.admin.view.AdminFragment"
         android:label="@string/menu_admin"
