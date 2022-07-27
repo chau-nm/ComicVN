@@ -16,6 +16,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.example.comicvn.R;
 import com.example.comicvn.obj.User;
 import com.example.comicvn.ui.MainActivity;
+import com.example.comicvn.ui.register.RegisterActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,14 +42,22 @@ public class LoginActivity extends AppCompatActivity {
 
         initialize();
         pressLoginBtn();
+        pressRegisterBtn();
     }
 
     private void initialize(){
         usernameEt = findViewById(R.id.username_et);
         passwordEt = findViewById(R.id.password_et);
         loginBtn = findViewById(R.id.login_btn);
+        registerBtn = findViewById(R.id.register_btn);
         sharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
+    }
+
+    private void pressRegisterBtn(){
+        registerBtn.setOnClickListener(view -> {
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+        });
     }
 
     private void pressLoginBtn(){

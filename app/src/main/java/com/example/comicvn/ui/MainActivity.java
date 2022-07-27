@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private TextView welcomMessage;
     private NavigationView navigationView;
+    private NavController navController;
+    private DrawerLayout drawer;
 
     @SuppressLint("ResourceType")
     @Override
@@ -47,16 +49,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        DrawerLayout drawer = binding.drawerLayout;
+        drawer = binding.drawerLayout;
         navigationView = binding.navView;
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_admin, R.id.nav_category)
+                R.id.nav_home, R.id.nav_category, R.id.nav_admin)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         int menuID = getIntent().getIntExtra("CATEGORY_MENU", -1);
         if(menuID == R.layout.fragment_category) navController.navigate(R.id.nav_category);
 
@@ -66,12 +68,11 @@ public class MainActivity extends AppCompatActivity {
         welcomMessage = navigationView.getHeaderView(0).findViewById(R.id.welcom_message);
 
         setUpNav();
-        logOut();
+        handleNavigation();
     }
 
-    private void logOut(){
+    private void handleNavigation(){
         navigationView.setNavigationItemSelectedListener(item -> {
-
             switch (item.getItemId()){
                 case R.id.nav_logout:
                     sharedPreferences.edit().clear().apply();
@@ -82,6 +83,14 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.nav_category:
                     startActivity(new Intent(MainActivity.this, ChoseCategoryActivity.class));
+                    return true;
+                case R.id.nav_admin:
+                    navController.navigate(R.id.nav_admin);
+                    drawer.close();
+                    return true;
+                case R.id.nav_home:
+                    navController.navigate(R.id.nav_home);
+                    drawer.close();
                     return true;
             }
             return false;
