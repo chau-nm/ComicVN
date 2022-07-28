@@ -9,16 +9,21 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ComicVN">
+
         <activity
-            android:name=".ui.MainActivity"
-            android:exported="true"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.ComicVN.NoActionBar">
+            android:name=".ui.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.ComicVN.NoActionBar">
         </activity>
         <activity
             android:name=".ui.admin.add.AddComicActivity"
