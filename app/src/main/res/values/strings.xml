@@ -13,10 +13,21 @@
     <string name="menu_category">Thể loại</string>
     <string name="menu_admin">Quản lý truyện</string>
     <string name="menu_login">Đăng nhập</string>
+    <string name="menu_history">Lịch sử</string>
+    <string name="menu_follow">Theo dõi</string>
+    <string name="menu_notification">Thông báo</string>
+    <string name="menu_rank">Xếp hạng</string>
     <string name="menu_logout">Đăng xuất</string>
+    <string name="register_account">Đăng ký</string>
 
     <string name="search_placeholder">Tìm kiếm</string>
 
     <string name="for_you">Dành cho bạn</string>
     <string name="new_update">Mới cập nhật</string>
+
+    <string name="prev_reader">Tập trước</string>
+    <string name="next_reader">Tập sau</string>
+
+
+
 </resources>

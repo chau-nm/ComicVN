@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comicvn.R;
+import com.example.comicvn.obj.Caculation;
 import com.example.comicvn.obj.Comic;
 import com.example.comicvn.ui.admin.add.AddChapterActivity;
 import com.example.comicvn.ui.admin.edit.EditComicActivity;
@@ -92,7 +93,7 @@ public class AdminComicDetailActivity extends AppCompatActivity {
                 Comic comic = snapshot.getValue(Comic.class);
                 comicNameTv.setText(comic.getName());
                 String comicUpdate = comic.getUpdate() != null
-                        ? "Cập nhật lúc " + comic.getUpdate().toString()
+                        ? "Cập nhật lúc " + Caculation.getMessageDate(comic.getUpdate())
                         : "Chưa có chương nào";
                 comicUpdateTv.setText(comicUpdate);
                 comicStateTv.setText(comic.getState());
