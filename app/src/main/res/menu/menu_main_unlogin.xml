@@ -12,7 +12,13 @@
             android:title="@string/menu_category" />
 
         <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_baseline_save_24"
+            android:title="@string/menu_history" />
+
+        <item
             android:id="@+id/nav_login"
-            android:title="@string/menu_login"/>
+            android:icon="@drawable/ic_baseline_sign_in"
+            android:title="@string/menu_login" />
     </group>
 </menu>

@@ -2,44 +2,109 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin">
 
-    <EditText
-        android:id="@+id/username_et"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tên đăng nhập"/>
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/password_et"
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Đăng nhập tài khoản ComicVN"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Mật khẩu"/>
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/confirm_password_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Nhập lại mật khẩu"/>
+        <EditText
+            android:id="@+id/username_et"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_input_login"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Tên đăng nhập"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
-    <EditText
-        android:id="@+id/fname_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Họ và tên"/>
 
-    <EditText
-        android:id="@+id/age_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Tuổi"/>
+        <EditText
+            android:id="@+id/password_et"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input_login"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/register_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Đăng ký"/>
+        <EditText
+            android:id="@+id/confirm_password_et"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input_login"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Nhập lại mật khẩu"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+        <EditText
+            android:id="@+id/fname_et"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input_login"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Họ và tên"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+        <EditText
+            android:id="@+id/age_et"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input_login"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Tuổi"
+            android:inputType="number"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_button"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:text="@string/register_account"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </LinearLayout>
 </LinearLayout>
