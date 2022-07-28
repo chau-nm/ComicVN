@@ -3,7 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/custom_button.xml" value="0.1725" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/custom_button_facebook.xml" value="0.1725" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/custom_input_login.xml" value="0.1725" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/fragment_history.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1725" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_admin_panel_settings_24.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_bell_24.xml" value="0.1935" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.223" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1725" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_rank_24.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_reader_prev.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.1725" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_rss_feed_24.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_baseline_sign_in.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1935" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.1935" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1835" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/drawable/side_nav_bar.xml" value="0.1835" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/activity_add_comic.xml" value="0.358695652173913" />
@@ -20,12 +41,14 @@
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/chose_category_activity.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/comic_detail_activity.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/comic_detail_admin_activity.xml" value="0.25" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/comic_history_card.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/comic_main_cardview.xml" value="0.23097826086956522" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/content_main.xml" value="0.23125" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/edit_comic_activity.xml" value="0.2046875" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/for_you_home_layout.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/fragment_admin.xml" value="0.23097826086956522" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/fragment_category.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/fragment_history.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/fragment_home.xml" value="0.23125" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/login_activity.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/layout/nav_header_main.xml" value="0.23125" />
@@ -43,61 +66,6 @@
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/menu/menu_reader.xml" value="0.3625" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/menu/search_edit_text_menu.xml" value="0.28229166666666666" />
         <entry key="..\:/Users/light/AndroidStudioProjects/ComicVN/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.126" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/border_radius.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/custom_button.xml" value="0.1585" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/custom_button_facebook.xml" value="0.1585" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/custom_input.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/custom_input_register.xml" value="0.1585" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_admin_panel_settings_24.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_bell.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_bell_24.xml" value="0.16666666666666666" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_history.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.1365" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_rank.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_rank_24.xml" value="0.1365" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_reader_next.xml" value="0.1365" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_reader_prev.xml" value="0.1365" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_rss_feed_24.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.1365" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_sign_in.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_baseline_sign_in_24.xml" value="0.1365" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_launcher_background.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_menu_camera.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.184" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/rounded_edittext.xml" value="0.1365" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/drawable/side_nav_bar.xml" value="0.14666666666666667" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/app_bar_main.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/banner_cardview.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/category_btn_cardview.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/chapter_cardview.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/chose_category_activity.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/content_main.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/edit_comic_activity.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/for_you_home_layout.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/login_activity.xml" value="0.22" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/nav_header_main.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/new_update_home_layout.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/page_admin_cardview.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/page_cardview.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/read_comic_activity.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/register_activity.xml" value="0.22" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/layout/search_activity.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/menu/activity_main_drawer.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/menu/bottom_navigation_read_comic_menu.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/menu/main.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/menu/menu_main_unlogin.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/menu/menu_reader.xml" value="0.17552083333333332" />
-        <entry key="..\:/java/hocky6/cuoiky-mobile/ComicVN/app/src/main/res/menu/search_edit_text_menu.xml" value="0.17552083333333332" />
       </map>
     </option>
   </component>

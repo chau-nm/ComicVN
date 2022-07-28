@@ -19,6 +19,7 @@ import com.example.comicvn.R;
 import com.example.comicvn.obj.Chapter;
 import com.example.comicvn.obj.Comic;
 import com.example.comicvn.obj.Page;
+import com.example.comicvn.sqlite.HistoryDb;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DataSnapshot;
@@ -44,6 +45,7 @@ public class ReadComicActivity extends AppCompatActivity {
     private Comic comic;
     private Chapter chapter;
     private Context context;
+    private HistoryDb db;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +63,7 @@ public class ReadComicActivity extends AppCompatActivity {
         pagesView.setLayoutManager(new LinearLayoutManager(this,
                 RecyclerView.VERTICAL, false));
         databaseReference = FirebaseDatabase.getInstance().getReference("comics");
-
+        db = new HistoryDb(this);
         btnv = findViewById(R.id.read_comic_bottom_nav);
         context = this;
         btnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -97,6 +99,7 @@ public class ReadComicActivity extends AppCompatActivity {
         comicId = intent.getStringExtra("COMICID");
         chapterId = intent.getStringExtra("CHAPTERID");
         chapterNumber = intent.getIntExtra("CHAPTERNUMBER", -1);
+        db.insert(comicId, chapterId);
     }
 
     private void loadData() {

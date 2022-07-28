@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.comicvn.R;
 import com.example.comicvn.obj.Caculation;
 import com.example.comicvn.obj.Comic;
-import com.example.comicvn.ui.admin.view.ChapterAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -64,8 +63,6 @@ public class ComicDetailActivity extends AppCompatActivity {
     public String getComicId() {
         return comicId;
     }
-
-
 
     private void loadData(){
         comicId = getIntent().getStringExtra("COMICID");

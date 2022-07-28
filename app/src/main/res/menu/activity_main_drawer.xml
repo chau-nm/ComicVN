@@ -15,6 +15,11 @@
             android:title="@string/menu_category" />
 
         <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_baseline_save_24"
+            android:title="@string/menu_history" />
+
+        <item
             android:id="@+id/nav_admin"
             android:icon="@drawable/ic_baseline_admin_panel_settings_24"
             android:title="@string/menu_admin" />
