@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
@@ -29,14 +30,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Holder
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.category_btn_cardview, parent, false);
+                .inflate(R.layout.category_btn_cardview_comicdetail_activity, parent, false);
         return new Holder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        holder.btn.setText(categories.get(position));
-        holder.btn.setOnClickListener(view -> {
+        holder.categoryBtn.setText(categories.get(position));
+        holder.categoryBtn.setOnClickListener(view -> {
             Intent intent = new Intent(context, MainActivity.class);
             intent.putExtra("CATEGORY_MENU", R.layout.fragment_category);
             intent.putExtra("CATEGORY", categories.get(position));
@@ -50,11 +51,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Holder
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-        private AppCompatButton btn;
+        private AppCompatButton categoryBtn;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
-            btn = itemView.findViewById(R.id.category_btn);
+            categoryBtn = itemView.findViewById(R.id.category_btn);
         }
     }
 }

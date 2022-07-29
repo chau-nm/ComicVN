@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,10 +8,14 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <include layout="@layout/toolbar" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -23,6 +28,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:text="Đại vương tha mạng"
+                    android:textColor="@color/black"
                     android:textSize="25dp"
                     android:textStyle="bold" />
 
@@ -30,8 +36,9 @@
                     android:id="@+id/update_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="20/4/2022"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="10dp"
+                    android:textStyle="italic" />
             </LinearLayout>
 
             <LinearLayout
@@ -41,69 +48,108 @@
 
                 <ImageView
                     android:id="@+id/comic_cover"
-                    android:layout_width="100dp"
-                    android:layout_height="200dp"/>
+                    android:layout_width="150dp"
+                    android:layout_height="175dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/comic_state"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
                         android:drawableLeft="@drawable/ic_baseline_rss_feed_24"
-                        android:paddingTop="5dp"
-                        android:text="Đang tiến hành" />
+                        android:text="Đang tiến hành"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
                     <TextView
                         android:id="@+id/view_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
                         android:drawableLeft="@drawable/ic_baseline_remove_red_eye_24"
-                        android:text="100.000" />
+                        android:text="100.000"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:drawableLeft="@drawable/ic_baseline_category_24"
+                        android:text="Thể loại"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/category_comic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/start_first_chap_btn"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_normal"
+                        android:text="Đọc từ đầu"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black" />
+
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:drawableLeft="@drawable/ic_baseline_library_books_24"
+                android:drawableBottom="@color/teal_700"
+                android:textSize="22dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/teal_700"
+                android:text="Nội dung"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nội dung"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/teal_700"/>
 
-                <TextView
-                    android:id="@+id/content_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/comic_content_tv"
+                android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:textColor="@color/black"
+                android:textSize="16dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Danh sách chương"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_baseline_format_list_bulleted_24"
+                android:textSize="22dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/teal_700"
+                android:drawableBottom="@color/teal_700"
+                android:text="Danh sách chương"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/chapters_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/teal_700"/>
 
-            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chapters_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="200dp"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

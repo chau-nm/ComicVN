@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,43 +22,39 @@
                     android:id="@+id/comic_image"
                     android:layout_width="180dp"
                     android:layout_height="220dp"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/delete_history_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/comic_image"
-                    android:src="@drawable/ic_baseline_clear_24"/>
+                    android:background="#33171717"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:src="@drawable/ic_baseline_clear_24" />
 
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/comic_name_label_nu"
+                style="@style/title_small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:padding="5dp"
-                style="@style/title_small"/>
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/chapter_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="Chapter"/>
-            <TextView
-                android:id="@+id/chapter_number_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="213"/>
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:text="" />
 
     </LinearLayout>
 

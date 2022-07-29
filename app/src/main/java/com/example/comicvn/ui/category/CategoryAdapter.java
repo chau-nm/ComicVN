@@ -29,7 +29,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Holder
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.category_btn_cardview, parent, false);
+                .inflate(R.layout.category_btn_cardview_category_activity, parent, false);
         return new CategoryAdapter.Holder(view);
     }
 

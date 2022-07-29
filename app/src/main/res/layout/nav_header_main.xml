@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="?attr/actionBarSize"
     android:background="@drawable/side_nav_bar"
     android:orientation="horizontal"
     android:layout_marginTop="@dimen/activity_horizontal_margin"
@@ -24,6 +24,6 @@
         android:gravity="center_vertical"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="24sp" />
+        android:textSize="15dp" />
 
 </LinearLayout>

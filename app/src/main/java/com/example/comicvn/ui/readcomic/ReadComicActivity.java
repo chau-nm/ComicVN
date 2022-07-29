@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,13 +47,14 @@ public class ReadComicActivity extends AppCompatActivity {
     private Chapter chapter;
     private Context context;
     private HistoryDb db;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_comic_activity);
         initialize();
-        loadData();
+        handleBottomMenu();
     }
 
     private void initialize() {
@@ -66,40 +68,72 @@ public class ReadComicActivity extends AppCompatActivity {
         db = new HistoryDb(this);
         btnv = findViewById(R.id.read_comic_bottom_nav);
         context = this;
-        btnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (comic != null && chapter != null)
-                    switch (item.getItemId()) {
-                        case R.id.previous_btn:
-                            Chapter previousChapter = comic.getPreviousChapter(chapter);
-                            if(previousChapter != null){
-                                Intent intent = new Intent(context, ReadComicActivity.class);
-                                intent.putExtra("COMICID", comicId);
-                                intent.putExtra("CHAPTERID", previousChapter.getId());
-                                startActivity(intent);
-                            }
-                            return true;
-                        case R.id.next_btn:
-                            Chapter nextChapter = comic.getNextChapter(chapter);
-                            if(nextChapter != null){
-                                Intent intent1 = new Intent(context, ReadComicActivity.class);
-                                intent1.putExtra("COMICID", comicId);
-                                intent1.putExtra("CHAPTERID", nextChapter.getId());
-                                startActivity(intent1);
-                            }
-                            return true;
-                        default:
-                            return false;
-                    }
-                return false;
-            }
-        });
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent intent = getIntent();
         comicId = intent.getStringExtra("COMICID");
         chapterId = intent.getStringExtra("CHAPTERID");
         chapterNumber = intent.getIntExtra("CHAPTERNUMBER", -1);
-        db.insert(comicId, chapterId);
+        loadData();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void handleBottomMenu(){
+        btnv.setOnItemSelectedListener(item -> {
+            if (comic != null && chapter != null)
+                switch (item.getItemId()) {
+                    case R.id.previous_btn:
+                        movePreviousChapter();
+                        return true;
+                    case R.id.next_btn:
+                        moveNextChapter();
+                        return true;
+                    default:
+                        return false;
+                }
+            return false;
+        });
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void movePreviousChapter(){
+        Chapter previousChapter = comic.getPreviousChapter(chapter);
+        if (previousChapter != null) {
+            chapter = previousChapter;
+            db.insert(comicId, chapter.getId());
+            pages.clear();
+            pages.addAll(chapter.getPages());
+            toolbar.setTitle("Chapter " + chapter.getNumber());
+            pageAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void moveNextChapter(){
+        Chapter nextChapter = comic.getNextChapter(chapter);
+        if (nextChapter != null) {
+            chapter = nextChapter;
+            db.insert(comicId, chapter.getId());
+            pages.clear();
+            pages.addAll(chapter.getPages());
+            toolbar.setTitle("Chapter " + chapter.getNumber());
+            pageAdapter.notifyDataSetChanged();
+        }
+
     }
 
     private void loadData() {
@@ -112,6 +146,7 @@ public class ReadComicActivity extends AppCompatActivity {
                 comic = snapshot.getValue(Comic.class);
                 chapter = comic.getChapter(chapterId);
                 pages.addAll(chapter.getPages());
+                toolbar.setTitle("Chapter " + chapter.getNumber());
                 pageAdapter.notifyDataSetChanged();
             }
 

@@ -8,7 +8,9 @@
         android:id="@+id/new_update_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
         style="@style/title_normal"
+        android:textColor="@color/teal_700"
         android:text="@string/new_update"/>
 
     <androidx.recyclerview.widget.RecyclerView

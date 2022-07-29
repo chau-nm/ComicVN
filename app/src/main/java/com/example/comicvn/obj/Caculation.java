@@ -9,7 +9,7 @@ public class Caculation {
         String message;
         Date now = Calendar.getInstance().getTime();
         if (now.getYear() == date.getYear() && now.getMonth() == date.getMonth()){
-            if (now.getDay() == date.getDay()) {
+            if (now.getDate() == date.getDate()) {
                 int hours = now.getHours() - date.getHours();
                 if (hours == 0){
                     int minutes = now.getMinutes() - date.getMinutes();
@@ -20,7 +20,7 @@ public class Caculation {
                 }
             }
             else {
-                int days = now.getDay() - date.getDay();
+                int days = now.getDate() - date.getDate();
                 if (days >= 7) message = days / 7 + " tuần trước";
                 else message = days + " ngày trước";
             }

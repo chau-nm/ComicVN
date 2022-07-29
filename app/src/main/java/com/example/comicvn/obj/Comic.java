@@ -6,8 +6,10 @@ import androidx.annotation.RequiresApi;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Comic {
     private String id;
@@ -57,6 +59,16 @@ public class Comic {
                 .get();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public List<Chapter> getNewUpdateChapter(int number){
+        return chapters != null
+                ? chapters.stream()
+                .sorted(Comparator.reverseOrder())
+                .limit(number)
+                .collect(Collectors.toList())
+                : new ArrayList<>();
+    }
+
     public Chapter getPreviousChapter(Chapter chapter){
         int index = chapters.indexOf(chapter);
         return index > 0 ? chapters.get(index - 1) : null;
@@ -77,7 +89,7 @@ public class Comic {
     public Date getUpdate(){
         return chapters != null
                 ? chapters.stream()
-                .sorted((c1, c2) -> c2.compareTo(c1))
+                .sorted(Comparator.reverseOrder())
                 .findFirst()
                 .get()
                 .getUpdate()

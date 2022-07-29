@@ -64,8 +64,8 @@ public class ComicAdapter extends RecyclerView.Adapter<ComicAdapter.Holder> {
             intent.putExtra("COMICID", comics.get(position).getId());
             context.startActivity(intent);
         });
-        holder.chapterNumberTv.setText(chapters.get(position).getNumber() + "");
-        holder.chapterView.setOnClickListener(view -> {
+        holder.chapterTv.setText("Đang đọc chapter " + chapters.get(position).getNumber());
+        holder.chapterTv.setOnClickListener(view -> {
             Intent intent = new Intent(context, ReadComicActivity.class);
             intent.putExtra("COMICID", comics.get(position).getId());
             intent.putExtra("CHAPTERID", chapters.get(position).getId());
@@ -89,17 +89,14 @@ public class ComicAdapter extends RecyclerView.Adapter<ComicAdapter.Holder> {
         private ImageView comicImage;
         private AppCompatImageButton deleteBtn;
         private TextView comicNameTv;
-        private RelativeLayout chapterView;
-        private TextView chapterNumberTv;
+        private TextView chapterTv;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
-
             comicImage = itemView.findViewById(R.id.comic_image);
             deleteBtn = itemView.findViewById(R.id.delete_history_btn);
             comicNameTv = itemView.findViewById(R.id.comic_name_label_nu);
-            chapterView = itemView.findViewById(R.id.chapter_view);
-            chapterNumberTv = itemView.findViewById(R.id.chapter_number_tv);
+            chapterTv = itemView.findViewById(R.id.message);
         }
     }
 }
