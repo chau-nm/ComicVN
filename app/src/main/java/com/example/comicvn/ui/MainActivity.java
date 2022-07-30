@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
         setUpNav();
         handleNavigation();
+
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+       // getSupportActionBar().hide();
     }
 
     private void handleNavigation(){
