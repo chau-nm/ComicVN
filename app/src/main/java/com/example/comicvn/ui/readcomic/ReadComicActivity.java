@@ -81,6 +81,7 @@ public class ReadComicActivity extends AppCompatActivity {
         comicId = intent.getStringExtra("COMICID");
         chapterId = intent.getStringExtra("CHAPTERID");
         chapterNumber = intent.getIntExtra("CHAPTERNUMBER", -1);
+        db.insert(comicId, chapterId);
         loadData();
     }
 
@@ -118,6 +119,8 @@ public class ReadComicActivity extends AppCompatActivity {
         if (previousChapter != null) {
             chapter = previousChapter;
             db.insert(comicId, chapter.getId());
+            System.out.println(chapter.getId());
+            System.out.println(db.getHistory());
             pages.clear();
             pages.addAll(chapter.getPages());
             toolbar.setTitle("Chapter " + chapter.getNumber());
