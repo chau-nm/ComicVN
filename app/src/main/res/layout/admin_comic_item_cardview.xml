@@ -1,52 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="#1A000000">
 
         <ImageView
             android:id="@+id/cover_image"
             android:layout_width="100dp"
-            android:layout_height="125dp"/>
+            android:layout_height="125dp"
+            android:layout_alignParentLeft="true" />
 
         <LinearLayout
+            android:id="@+id/info_comic"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/delete_comic_btn"
+            android:layout_toRightOf="@+id/cover_image"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/name_comic_tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="One piece"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/comic_state_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_baseline_rss_feed_24"
+                android:textSize="20dp"
+                android:textStyle="italic" />
 
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_remove_red_eye_24"/>
-                <TextView
-                    android:id="@+id/view_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/view_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_baseline_remove_red_eye_24"
+                android:textSize="20dp"
+                android:textStyle="italic" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_favorite_24"/>
-                <TextView
-                    android:id="@+id/favorite_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/delete_comic_btn"
+            android:layout_width="50dp"
+            android:layout_height="125dp"
+            android:padding="40dp"
+            android:background="@drawable/delete_btn_red"
+            android:src="@drawable/ic_baseline_clear_24"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -1,10 +1,11 @@
 package com.example.comicvn.ui.search;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -20,7 +21,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -33,29 +33,26 @@ public class SearchActivity extends AppCompatActivity {
     private ComicAdapter comicAdapter;
     private EditText searchEt;
     private DatabaseReference databaseReference;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_activity);
 
-        initialize();
-        search();
-    }
-
-    private void initialize(){
         comics = new ArrayList<>();
         comicsView = findViewById(R.id.comics_view);
         comicAdapter = new ComicAdapter(comics, SearchActivity.this);
         comicsView.setAdapter(comicAdapter);
         comicsView.setLayoutManager(new GridLayoutManager(this, 2));
-        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         searchEt = toolbar.findViewById(R.id.search_et);
         databaseReference = FirebaseDatabase.getInstance().getReference("comics");
-    }
 
-    private void search(){
         searchEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
@@ -72,6 +69,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private void loadData(String keyword){
         databaseReference.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 comics.clear();
@@ -90,9 +88,20 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.search_menu, menu);
         menu.findItem(R.id.action_search).setChecked(true);
-        return false;
+        super.onCreateOptionsMenu(menu);
+        return true;
     }
 }

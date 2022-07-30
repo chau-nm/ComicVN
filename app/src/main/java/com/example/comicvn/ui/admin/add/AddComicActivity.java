@@ -5,9 +5,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -55,6 +57,10 @@ public class AddComicActivity extends AppCompatActivity {
             openFileChose();
         });
         saveBtn.setOnClickListener(view -> {
+            if (nameEt == null)
+                new AlertDialog.Builder(this)
+                        .setTitle("Xóa truyện")
+                        .setMessage("Vui lòng nhập tên truyện").show();
             save();
         });
     }
@@ -85,6 +91,8 @@ public class AddComicActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("comics");
         storageReference = FirebaseStorage.getInstance().getReference("comics");
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
@@ -124,6 +132,12 @@ public class AddComicActivity extends AppCompatActivity {
                             databaseReference.child(id).setValue(comic);
                         });
                         Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+                        nameEt.setText("");
+                        coverView.setImageURI(Uri.parse(""));
+                        categories.clear();
+                        contentEt.setText("");
+                        categoryEt.setText("");
+                        categoryAdapter.notifyDataSetChanged();
                     });
         }else{
 

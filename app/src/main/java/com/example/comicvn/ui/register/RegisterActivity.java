@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.comicvn.R;
 import com.example.comicvn.obj.User;
@@ -92,6 +94,20 @@ public class RegisterActivity extends AppCompatActivity {
         ageEt = findViewById(R.id.age_et);
         registerBtn = findViewById(R.id.register_btn);
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void register(){
@@ -111,6 +127,11 @@ public class RegisterActivity extends AppCompatActivity {
             databaseReference.child(id).setValue(user)
                     .addOnSuccessListener(unused -> {
                         Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                        usernameEt.setText("");
+                        passwordEt.setText("");
+                        confirmPasswordEt.setText("");
+                        fnameEt.setText("");
+                        ageEt.setText("");
                     });
         }
     }

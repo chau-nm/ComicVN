@@ -7,13 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -23,11 +19,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.comicvn.R;
 import com.example.comicvn.databinding.ActivityMainBinding;
+import com.example.comicvn.ui.admin.view.AdminActivity;
 import com.example.comicvn.ui.category.ChoseCategoryActivity;
 import com.example.comicvn.ui.login.LoginActivity;
 import com.example.comicvn.ui.search.SearchActivity;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 
 public class MainActivity extends AppCompatActivity {
@@ -89,8 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, ChoseCategoryActivity.class));
                     return true;
                 case R.id.nav_admin:
-                    navController.navigate(R.id.nav_admin);
-                    drawer.close();
+                    startActivity(new Intent(MainActivity.this, AdminActivity.class));
                     return true;
                 case R.id.nav_home:
                     navController.navigate(R.id.nav_home);
@@ -128,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.search_menu, menu);
         menu.findItem(R.id.action_search).setChecked(true);
         menu.findItem(R.id.action_search).setOnMenuItemClickListener(menuItem -> {
 

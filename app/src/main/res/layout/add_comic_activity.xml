@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <include layout="@layout/toolbar"/>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -72,6 +74,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:background="@color/light_green"
+                        android:textAllCaps="false"
                         android:text="Thêm" />
                 </RelativeLayout>
 
@@ -91,6 +95,8 @@
                     android:id="@+id/chose_file_cover_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@color/light_green"
+                    android:textAllCaps="false"
                     android:text="Chose File" />
 
                 <ImageView
@@ -125,6 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:background="@drawable/btn_normal"
                     android:text="Lưu" />
 
             </LinearLayout>

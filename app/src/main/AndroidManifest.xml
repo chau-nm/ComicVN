@@ -19,31 +19,35 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.admin.view.AdminActivity"
+            android:exported="true" />
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.ComicVN.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.ComicVN.NoActionBar"></activity>
+
         <activity
             android:name=".ui.admin.add.AddComicActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ui.admin.view.AdminComicDetailActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.admin.edit.EditComicActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.admin.add.AddChapterActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.comicdetail.ComicDetailActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.readcomic.ReadComicActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="true">
@@ -51,14 +55,13 @@
         </activity>
         <activity
             android:name=".ui.login.LoginActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ui.search.SearchActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.category.ChoseCategoryActivity"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>
