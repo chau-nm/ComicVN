@@ -26,6 +26,9 @@
                 android:id="@+id/comic_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:gravity="center"/>
 
             <LinearLayout
@@ -93,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/btn_normal"
                 android:text="Lưu" />
 

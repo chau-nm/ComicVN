@@ -1,5 +1,6 @@
 package com.example.comicvn.ui.admin.add;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,9 +36,17 @@ public class PageAdapter extends RecyclerView.Adapter<PageAdapter.Hodler> {
         return new Hodler(view);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull PageAdapter.Hodler holder, int position) {
-        holder.pageImage.setImageURI(pages.get(position));
+        Picasso.get()
+                .load(pages.get(position))
+                .fit()
+                .into(holder.pageImage);
+        holder.pageImage.setOnClickListener(view -> {
+            pages.remove(position);
+            notifyDataSetChanged();
+        });
     }
 
     @Override
