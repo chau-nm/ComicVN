@@ -1,6 +1,7 @@
 package com.example.comicvn.ui.admin.edit;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -130,9 +131,17 @@ public class EditComicActivity extends AppCompatActivity {
     private void pressAddCategoryBtn() {
         addCategoryBtn.setOnClickListener(view -> {
             String category = categoryEt.getText().toString();
-            categories.add(category);
-            categoryEt.setText("");
-            categoryAdapter.notifyDataSetChanged();
+            if(!category.equals("")){
+                categories.add(category);
+                categoryEt.setText("");
+                categoryAdapter.notifyDataSetChanged();
+            }else{
+                new AlertDialog.Builder(EditComicActivity.this)
+                        .setTitle("Lời nhắc")
+                        .setMessage("Bạn đang bỏ trống ô thể loại kìa")
+                        .setPositiveButton("OK", (dialogInterface, i) -> {})
+                        .show();
+            }
         });
     }
 
