@@ -82,6 +82,7 @@ public class HomeFragment extends Fragment {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                newUpdateList.clear();
                 for (DataSnapshot post: snapshot.getChildren()){
                     Comic comic = post.getValue(Comic.class);
                     newUpdateList.add(comic);
@@ -102,17 +103,16 @@ public class HomeFragment extends Fragment {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                forYouList.clear();
                 for (DataSnapshot post: snapshot.getChildren()){
                     Comic comic = post.getValue(Comic.class);
                     forYouList.add(comic);
                 }
-                newUpdateAdapter.notifyDataSetChanged();
+                forYouAdapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) {}
         });
     }
 
