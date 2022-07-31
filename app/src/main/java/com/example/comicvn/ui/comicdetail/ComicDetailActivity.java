@@ -26,6 +26,7 @@ import com.example.comicvn.R;
 import com.example.comicvn.obj.Caculation;
 import com.example.comicvn.obj.Comic;
 import com.example.comicvn.ui.readcomic.ReadComicActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.database.DataSnapshot;
@@ -48,6 +49,7 @@ public class ComicDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Comic comic;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,35 +108,28 @@ public class ComicDetailActivity extends AppCompatActivity {
         return comicId;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void loadData(){
         comicId = getIntent().getStringExtra("COMICID");
         Query query = databaseReference.child(comicId);
-
-        query.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                comic = snapshot.getValue(Comic.class);
-                comicNameTv.setText(comic.getName());
-                String comicUpdate = comic.getUpdate() != null
-                        ? "Cập nhật " + Caculation.getMessageDate(comic.getUpdate())
-                        : "Chưa có chương nào";
-                comicUpdateTv.setText(comicUpdate);
-                comicStateTv.setText(comic.getState());
-                comicViewNumberTv.setText(comic.getView() + "");
-                comicContentTv.setText(comic.getContent());
-                Picasso.get()
-                        .load(comic.getCover())
-                        .fit()
-                        .into(comicCoverIV);
-                categoriesView.setAdapter(new CategoryAdapter(comic.getCategory(), ComicDetailActivity.this));
-                chaptersView.setAdapter(new ChapterAdapter(comic.getChapters(), ComicDetailActivity.this, comic.getId()));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
+        query.get().addOnSuccessListener(dataSnapshot -> {
+            comic = dataSnapshot.getValue(Comic.class);
+            comicNameTv.setText(comic.getName());
+            String comicUpdate = comic.getUpdate() != null
+                    ? "Cập nhật " + Caculation.getMessageDate(comic.getUpdate())
+                    : "Chưa có chương nào";
+            comicUpdateTv.setText(comicUpdate);
+            comicStateTv.setText(comic.getState());
+            comicViewNumberTv.setText(comic.getView() + "");
+            comicContentTv.setText(comic.getContent());
+            Picasso.get()
+                    .load(comic.getCover())
+                    .fit()
+                    .into(comicCoverIV);
+            categoriesView.setAdapter(new CategoryAdapter(comic.getCategory(), ComicDetailActivity.this));
+            chaptersView.setAdapter(new ChapterAdapter(comic.getChapters(), ComicDetailActivity.this, comic.getId()));
+            comic.increaseView();
+            databaseReference.child(comic.getId()).setValue(comic);
         });
     }
 }

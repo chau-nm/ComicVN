@@ -18,7 +18,6 @@ public class Comic {
     private String state;
     private List<String> category;
     private long view;
-    private long like;
     private String content;
     private List<Chapter> chapters;
 
@@ -31,12 +30,11 @@ public class Comic {
         this.state = "Đang tiến hành";
         this.category = category;
         this.view = 0;
-        this.like = 0;
         this.content = content;
     }
 
     public Comic(String id, String name, String cover, String state
-            , List<String> category, long view, long like, String content
+            , List<String> category, long view,  String content
             , List<Chapter> chapters) {
         this.id = id;
         this.name = name;
@@ -44,10 +42,11 @@ public class Comic {
         this.state = state;
         this.category = category;
         this.view = view;
-        this.like = like;
         this.content = content;
         this.chapters = chapters;
     }
+
+    public void increaseView(){view++;}
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public Chapter getChapter(String chapterId){
@@ -115,10 +114,6 @@ public class Comic {
         return category;
     }
 
-    public long getLike() {
-        return like;
-    }
-
     public long getView() {
         return view;
     }
@@ -153,10 +148,6 @@ public class Comic {
 
     public void setView(long view) {
         this.view = view;
-    }
-
-    public void setLike(long like) {
-        this.like = like;
     }
 
     public void setContent(String content) {

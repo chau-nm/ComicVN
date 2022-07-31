@@ -20,6 +20,10 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:fitsSystemWindows="true"
+        android:background="#ffff"
+        app:itemTextColor="@color/black"
+        app:subheaderColor="@color/black"
+        app:itemIconTint="@color/black"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/menu_main_unlogin" />
 </androidx.drawerlayout.widget.DrawerLayout>

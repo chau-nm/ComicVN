@@ -22,6 +22,7 @@ import com.example.comicvn.obj.Chapter;
 import com.example.comicvn.obj.Comic;
 import com.example.comicvn.obj.Page;
 import com.example.comicvn.sqlite.HistoryDb;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DataSnapshot;
@@ -50,6 +51,7 @@ public class ReadComicActivity extends AppCompatActivity {
     private HistoryDb db;
     private Toolbar toolbar;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +62,7 @@ public class ReadComicActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void initialize() {
         pagesView = findViewById(R.id.pages_view);
         pages = new ArrayList<>();
@@ -87,7 +90,7 @@ public class ReadComicActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
                 return true;
@@ -96,7 +99,7 @@ public class ReadComicActivity extends AppCompatActivity {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private void handleBottomMenu(){
+    private void handleBottomMenu() {
         btnv.setOnItemSelectedListener(item -> {
             if (comic != null && chapter != null)
                 switch (item.getItemId()) {
@@ -114,7 +117,7 @@ public class ReadComicActivity extends AppCompatActivity {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private void movePreviousChapter(){
+    private void movePreviousChapter() {
         Chapter previousChapter = comic.getPreviousChapter(chapter);
         if (previousChapter != null) {
             chapter = previousChapter;
@@ -129,7 +132,7 @@ public class ReadComicActivity extends AppCompatActivity {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private void moveNextChapter(){
+    private void moveNextChapter() {
         Chapter nextChapter = comic.getNextChapter(chapter);
         if (nextChapter != null) {
             chapter = nextChapter;
@@ -142,24 +145,17 @@ public class ReadComicActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void loadData() {
         Query query = databaseReference.child(comicId);
-        query.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                comic = snapshot.getValue(Comic.class);
-                chapter = comic.getChapter(chapterId);
-                pages.addAll(chapter.getPages());
-                toolbar.setTitle("Chapter " + chapter.getNumber());
-                pageAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+        query.get().addOnSuccessListener(dataSnapshot -> {
+            comic = dataSnapshot.getValue(Comic.class);
+            chapter = comic.getChapter(chapterId);
+            chapter.increaseView();
+            pages.addAll(chapter.getPages());
+            toolbar.setTitle("Chapter " + chapter.getNumber());
+            pageAdapter.notifyDataSetChanged();
+            databaseReference.child(comic.getId()).setValue(comic);
         });
     }
 }

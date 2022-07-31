@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
@@ -37,8 +38,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textSize="10dp"
-                    android:textStyle="italic" />
+                    android:textSize="16dp"
+                    android:textColor="#373737"
+                    android:textStyle="italic"/>
             </LinearLayout>
 
             <LinearLayout
@@ -64,6 +66,7 @@
                         android:layout_marginBottom="10dp"
                         android:drawableLeft="@drawable/ic_baseline_rss_feed_24"
                         android:text="Đang tiến hành"
+                        android:drawableTint="@color/black"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
 
@@ -74,6 +77,7 @@
                         android:layout_marginBottom="10dp"
                         android:drawableLeft="@drawable/ic_baseline_remove_red_eye_24"
                         android:text="100.000"
+                        android:drawableTint="@color/black"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
 
@@ -83,6 +87,7 @@
                         android:layout_marginBottom="10dp"
                         android:drawableLeft="@drawable/ic_baseline_category_24"
                         android:text="Thể loại"
+                        android:drawableTint="@color/black"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
 

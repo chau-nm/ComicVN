@@ -1,5 +1,7 @@
 package com.example.comicvn.obj;
 
+import android.view.View;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +14,7 @@ public class Chapter implements Comparable<Chapter>{
     private String title;
     private List<Page> pages;
     private Date update;
+    private long view;
 
     public Chapter() {}
 
@@ -20,15 +23,23 @@ public class Chapter implements Comparable<Chapter>{
         this.number = number;
         this.title = title;
         this.pages = pages;
+        this.view = 0;
         this.update = Calendar.getInstance().getTime();
     }
 
-    public Chapter(String id, String number, String title, List<Page> pages, Date update) {
+    public Chapter(String id, String number, String title, long view, List<Page> pages, Date update) {
         this.id = id;
         this.number = number;
         this.title = title;
         this.pages = pages;
+        this.view = view;
         this.update = update;
+    }
+
+    public void increaseView(){view++;}
+
+    public long getView() {
+        return view;
     }
 
     public boolean isChapter(String chapterId){
