@@ -6,6 +6,12 @@
     android:padding="16dp">
 
     <include layout="@layout/toolbar"/>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:visibility="gone"
+        style="@android:style/Widget.ProgressBar.Horizontal"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -16,17 +22,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="@string/add_comic_title"
-                android:textAllCaps="true"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,6 +30,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Tên truyện" />
 
                 <EditText
@@ -51,6 +48,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Thể loại" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -89,6 +88,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Ảnh bìa" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -113,6 +114,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Nội dung" />
 
                 <EditText

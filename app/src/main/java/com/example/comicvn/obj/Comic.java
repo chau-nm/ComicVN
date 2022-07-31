@@ -21,7 +21,6 @@ public class Comic {
     private long like;
     private String content;
     private List<Chapter> chapters;
-    private List<Comment> comments;
 
     public Comic(){}
 
@@ -38,7 +37,7 @@ public class Comic {
 
     public Comic(String id, String name, String cover, String state
             , List<String> category, long view, long like, String content
-            , List<Chapter> chapters, List<Comment> comments) {
+            , List<Chapter> chapters) {
         this.id = id;
         this.name = name;
         this.cover = cover;
@@ -48,15 +47,15 @@ public class Comic {
         this.like = like;
         this.content = content;
         this.chapters = chapters;
-        this.comments = comments;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public Chapter getChapter(String chapterId){
-        return chapters.stream()
+        return  chapters != null && chapters.size() > 0
+                ? chapters.stream()
                 .filter(c -> c.isChapter(chapterId))
                 .findFirst()
-                .get();
+                .get() : null;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -87,7 +86,7 @@ public class Comic {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public Date getUpdate(){
-        return chapters != null
+        return chapters != null && chapters.size() > 0
                 ? chapters.stream()
                 .sorted(Comparator.reverseOrder())
                 .findFirst()
@@ -110,10 +109,6 @@ public class Comic {
 
     public String getCover() {
         return cover;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
     }
 
     public List<String> getCategory() {
@@ -166,5 +161,9 @@ public class Comic {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public void setChapters(List<Chapter> chapters) {
+        this.chapters = chapters;
     }
 }

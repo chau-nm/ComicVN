@@ -7,8 +7,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +21,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +31,7 @@ import com.example.comicvn.obj.Comic;
 import com.example.comicvn.obj.Page;
 import com.example.comicvn.ui.admin.view.CategoryAdapter;
 import com.example.comicvn.ui.admin.view.ChapterAdapter;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,6 +59,8 @@ public class AddChapterActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private StorageReference storageReference;
     private Comic comic;
+    private Toolbar toolbar;
+    private ProgressBar progressBar;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -68,6 +75,16 @@ public class AddChapterActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(view -> {
             save();
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void loadData(){
@@ -100,6 +117,11 @@ public class AddChapterActivity extends AppCompatActivity {
         pagesView.setAdapter(pageAdapter);
         pagesView.setNestedScrollingEnabled(false);
         pagesView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        progressBar = findViewById(R.id.progress_bar);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("comics");
         storageReference = FirebaseStorage.getInstance().getReference("comics");
@@ -112,6 +134,7 @@ public class AddChapterActivity extends AppCompatActivity {
         startActivityForResult(intent, PICK_IMAGE);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -129,6 +152,7 @@ public class AddChapterActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cr.getType(uri));
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void save(){
         List<Page> pageList = new ArrayList<>();
@@ -141,15 +165,38 @@ public class AddChapterActivity extends AppCompatActivity {
                         pageSR.getDownloadUrl().addOnSuccessListener(uri1 -> {
                             pageList.add(new Page(pageList.size(), uri1.toString()));
                             if (uri.equals(pages.get(pages.size() - 1))){
-                                int chapterNumber = Integer.parseInt(chapterNumberEt.getText().toString());
+                                String chapterNumber = chapterNumberEt.getText().toString();
                                 String chapteTitle = chapterTitleEt.getText().toString();
                                 Chapter chapter = new Chapter(chapterNumber, chapteTitle, pageList);
                                 comic.addChapter(chapter);
-                                databaseReference.child(comic.getId()).setValue(comic);
-                                Toast.makeText(this, "Saved", Toast.LENGTH_LONG).show();
+                                databaseReference
+                                        .child(comic.getId())
+                                        .setValue(comic)
+                                        .addOnSuccessListener(unused -> {
+                                            chapterNumberEt.setText("");
+                                            chapterTitleEt.setText("");
+                                            pages.clear();
+                                            pageList.clear();
+                                            Toast.makeText(AddChapterActivity.this, "Saved", Toast.LENGTH_LONG).show();
+                                            progressBar.setProgress(0);
+                                            progressBar.setVisibility(View.GONE);
+                                            chapterNumberEt.setEnabled(true);
+                                            chapterTitleEt.setEnabled(true);
+                                            addPageBtn.setEnabled(true);
+                                            pageAdapter.notifyDataSetChanged();
+                                        });
                             }
                         });
-                    });
+                    })
+                    .addOnProgressListener(snapshot -> {
+                        chapterNumberEt.setEnabled(false);
+                        chapterTitleEt.setEnabled(false);
+                        addPageBtn.setEnabled(false);
+                        progressBar.setVisibility(View.VISIBLE);
+                        int progress = (int) (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                        progressBar.setProgress(progress);
+                    });;
+
         });
     }
 }

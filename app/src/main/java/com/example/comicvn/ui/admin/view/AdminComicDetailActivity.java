@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +40,7 @@ public class AdminComicDetailActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String comicId;
     private Context context;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,7 +73,7 @@ public class AdminComicDetailActivity extends AppCompatActivity {
         comicUpdateTv = findViewById(R.id.update_date);
         comicStateTv = findViewById(R.id.comic_state);
         comicViewNumberTv = findViewById(R.id.view_number);
-        comicContentTv = findViewById(R.id.content_tv);
+        comicContentTv = findViewById(R.id.comic_content_tv);
         comicCoverIV = findViewById(R.id.comic_cover);
         categoriesView = findViewById(R.id.category_comic);
         chaptersView = findViewById(R.id.chapters_view);
@@ -79,7 +82,21 @@ public class AdminComicDetailActivity extends AppCompatActivity {
         addChapterBtn = findViewById(R.id.add_chapter_btn);
         context = this;
 
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         databaseReference = FirebaseDatabase.getInstance().getReference("comics");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void loadData(){

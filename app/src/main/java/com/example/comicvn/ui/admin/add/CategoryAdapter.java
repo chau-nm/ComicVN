@@ -1,5 +1,6 @@
 package com.example.comicvn.ui.admin.add;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Holder
         return new Holder(view);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.btn.setText(categories.get(position));

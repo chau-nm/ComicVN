@@ -1,5 +1,6 @@
 package com.example.comicvn.ui.home;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -76,8 +77,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadDataNewUpdate(){
-        Query query = databaseReference.orderByChild("view").limitToFirst(10);
+        Query query = databaseReference;
         query.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot post: snapshot.getChildren()){
@@ -97,6 +99,7 @@ public class HomeFragment extends Fragment {
     private void loadDataForYou(){
         Query query = databaseReference.orderByChild("view").limitToFirst(10);
         query.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot post: snapshot.getChildren()){

@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/toolbar"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:visibility="gone"
+        style="@android:style/Widget.ProgressBar.Horizontal"/>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,6 +35,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Số chương"/>
 
                 <EditText
@@ -41,6 +52,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Tiêu đề"/>
 
                 <EditText
@@ -56,13 +69,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Danh sách trang"/>
 
                 <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
                     android:id="@+id/add_page_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_add_24"/>
+                    android:layout_height="50dp"
+                    android:background="#8000F10A"
+                    android:src="@drawable/ic_baseline_add_50_white"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/pages_view"
@@ -74,7 +92,9 @@
                 android:id="@+id/save_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lưu"/>
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_normal"
+                android:text="Lưu" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

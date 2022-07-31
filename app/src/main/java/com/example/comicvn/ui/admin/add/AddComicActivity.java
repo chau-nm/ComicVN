@@ -9,15 +9,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.comicvn.R;
@@ -44,6 +48,8 @@ public class AddComicActivity extends AppCompatActivity {
     private Uri uriCover;
     private DatabaseReference databaseReference;
     private StorageReference storageReference;
+    private boolean saving;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +63,14 @@ public class AddComicActivity extends AppCompatActivity {
             openFileChose();
         });
         saveBtn.setOnClickListener(view -> {
-            if (nameEt == null)
+            if (nameEt.equals(""))
                 new AlertDialog.Builder(this)
-                        .setTitle("Xóa truyện")
+                        .setTitle("Lời nhắc")
                         .setMessage("Vui lòng nhập tên truyện").show();
-            save();
+            else if (!saving){
+                saving = true;
+                save();
+            }
         });
     }
 
@@ -88,6 +97,7 @@ public class AddComicActivity extends AppCompatActivity {
         saveBtn = findViewById(R.id.save_btn);
         coverView = findViewById(R.id.cover_image);
         choseFileCoverBtn = findViewById(R.id.chose_file_cover_btn);
+        progressBar = findViewById(R.id.progress_bar);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("comics");
         storageReference = FirebaseStorage.getInstance().getReference("comics");
@@ -97,6 +107,7 @@ public class AddComicActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
     
+    @SuppressLint("NotifyDataSetChanged")
     private void addCategoryEvent(){
         String category = categoryEt.getText().toString();
         categories.add(category);
@@ -117,27 +128,48 @@ public class AddComicActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cr.getType(uri));
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void save(){
         if (uriCover != null){
             StorageReference coverSR = storageReference.child(System.currentTimeMillis() +
                     "." + getFileExtention(uriCover));
             coverSR.putFile(uriCover)
                     .addOnSuccessListener(taskSnapshot -> {
-                        coverSR.getDownloadUrl().addOnSuccessListener(uri -> {
-                            String id = databaseReference.push().getKey();
-                            String name = nameEt.getText().toString();
-                            String cover = uri.toString();
-                            String content = contentEt.getText().toString();
-                            Comic comic = new Comic(id, name, cover, categories, content);
-                            databaseReference.child(id).setValue(comic);
-                        });
-                        Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
-                        nameEt.setText("");
-                        coverView.setImageURI(Uri.parse(""));
-                        categories.clear();
-                        contentEt.setText("");
-                        categoryEt.setText("");
-                        categoryAdapter.notifyDataSetChanged();
+                        coverSR.getDownloadUrl()
+                                .addOnSuccessListener(uri -> {
+                                    String id = databaseReference.push().getKey();
+                                    String name = nameEt.getText().toString();
+                                    String cover = uri.toString();
+                                    String content = contentEt.getText().toString();
+                                    Comic comic = new Comic(id, name, cover, categories, content);
+                                    databaseReference.child(id).setValue(comic)
+                                            .addOnSuccessListener(unused -> {
+                                                Toast.makeText(AddComicActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                                                nameEt.setText("");
+                                                coverView.setImageURI(Uri.parse(""));
+                                                categories.clear();
+                                                contentEt.setText("");
+                                                categoryEt.setText("");
+                                                categoryAdapter.notifyDataSetChanged();
+                                                uriCover = null;
+                                                saving = false;
+                                                progressBar.setProgress(0);
+                                                progressBar.setVisibility(View.GONE);
+                                                nameEt.setEnabled(true);
+                                                categoryEt.setEnabled(true);
+                                                choseFileCoverBtn.setEnabled(true);
+                                                contentEt.setEnabled(true);
+                                            });
+                                });
+                    })
+                    .addOnProgressListener(snapshot -> {
+                        nameEt.setEnabled(false);
+                        categoryEt.setEnabled(false);
+                        choseFileCoverBtn.setEnabled(false);
+                        contentEt.setEnabled(false);
+                        progressBar.setVisibility(View.VISIBLE);
+                        int progress = (int) (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                        progressBar.setProgress(progress);
                     });
         }else{
 

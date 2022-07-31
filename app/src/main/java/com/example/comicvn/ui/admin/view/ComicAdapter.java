@@ -48,7 +48,7 @@ public class ComicAdapter extends RecyclerView.Adapter<ComicAdapter.Holder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ComicAdapter.Holder holder, int position) {
+    public void onBindViewHolder(@NonNull ComicAdapter.Holder holder, @SuppressLint("RecyclerView") int position) {
         Picasso.get()
                 .load(comics.get(position).getCover())
                 .fit()
@@ -70,6 +70,7 @@ public class ComicAdapter extends RecyclerView.Adapter<ComicAdapter.Holder> {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             snapshot.getRef().removeValue();
+                            comics.remove(position);
                             Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
                         }
 

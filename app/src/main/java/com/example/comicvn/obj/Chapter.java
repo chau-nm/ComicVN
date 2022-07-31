@@ -8,14 +8,14 @@ import java.util.Objects;
 public class Chapter implements Comparable<Chapter>{
 
     private String id;
-    private int number;
+    private String number;
     private String title;
     private List<Page> pages;
     private Date update;
 
     public Chapter() {}
 
-    public Chapter(int number,String title, List<Page> pages){
+    public Chapter(String number,String title, List<Page> pages){
         this.id = System.currentTimeMillis() + "";
         this.number = number;
         this.title = title;
@@ -23,7 +23,7 @@ public class Chapter implements Comparable<Chapter>{
         this.update = Calendar.getInstance().getTime();
     }
 
-    public Chapter(String id, int number, String title, List<Page> pages, Date update) {
+    public Chapter(String id, String number, String title, List<Page> pages, Date update) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -39,7 +39,7 @@ public class Chapter implements Comparable<Chapter>{
         return id;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -60,7 +60,7 @@ public class Chapter implements Comparable<Chapter>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Chapter chapter = (Chapter) o;
-        return number == chapter.number && Objects.equals(id, chapter.id) && Objects.equals(title, chapter.title) && Objects.equals(pages, chapter.pages) && Objects.equals(update, chapter.update);
+        return number.equals(chapter.number) && Objects.equals(id, chapter.id) && Objects.equals(title, chapter.title) && Objects.equals(pages, chapter.pages) && Objects.equals(update, chapter.update);
     }
 
     @Override

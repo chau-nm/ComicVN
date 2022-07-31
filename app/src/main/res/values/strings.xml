@@ -1,13 +1,6 @@
 <resources>
     <string name="app_name">ComicVN</string>
     <string name="add_comic_title">Thêm truyện</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_search">Search</string>
 
     <string name="menu_home">Trang chủ</string>
     <string name="menu_category">Thể loại</string>
@@ -28,6 +21,15 @@
     <string name="prev_reader">Tập trước</string>
     <string name="next_reader">Tập sau</string>
 
+    <string name="activity_admin">Quản lý truyện</string>
+    <string name="activity_add_comic">Thêm truyện</string>
+    <string name="activity_comicdetail">Thông tin truyện</string>
+    <string name="activity_edit_comic">Chỉnh sửa truyện</string>
+    <string name="activity_add_chapter">Thêm chương</string>
+    <string name="activity_login">Đăng nhập</string>
+    <string name="activity_register">Đăng ký</string>
+    <string name="activity_chose_category">Chọn thể loại</string>
 
+    <string name="action_search">Search</string>
 
 </resources>

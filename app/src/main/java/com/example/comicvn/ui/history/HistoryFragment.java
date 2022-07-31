@@ -70,7 +70,6 @@ public class HistoryFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Comic comic = dataSnapshot.getValue(Comic.class);
-                    System.out.println(comic);
                     if(history.containsKey(comic.getId())){
                         Chapter chapter = comic.getChapter(history.get(comic.getId()));
                         if(chapter != null){

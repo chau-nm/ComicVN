@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:visibility="gone"
+        style="@android:style/Widget.ProgressBar.Horizontal"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -12,25 +22,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:text="@string/add_comic_title"
-                android:textAllCaps="true"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Tên truyện" />
 
                 <EditText
@@ -42,11 +44,33 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:text="Trạng thái" />
+
+                <EditText
+                    android:id="@+id/comic_state_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Thể loại" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -69,6 +93,8 @@
                         android:id="@+id/add_category"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:background="@color/light_green"
                         android:layout_alignParentRight="true"
                         android:text="Thêm" />
                 </RelativeLayout>
@@ -78,17 +104,22 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Ảnh bìa" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/chose_file_cover_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@color/light_green"
+                    android:textAllCaps="false"
                     android:text="Chose File" />
 
                 <ImageView
@@ -100,11 +131,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Nội dung" />
 
                 <EditText
@@ -117,17 +151,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
                     android:text="Danh sách chương"/>
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/add_chapter_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_add_24"/>
+                    android:layout_height="50dp"
+                    android:background="@color/light_green"
+                    android:src="@drawable/ic_baseline_add_50_white"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/chapters_view"
@@ -137,12 +175,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/save_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
                     android:layout_alignParentRight="true"
                     android:text="Lưu" />
 

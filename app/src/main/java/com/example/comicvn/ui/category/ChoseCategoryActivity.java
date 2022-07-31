@@ -70,9 +70,11 @@ public class ChoseCategoryActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Comic comic = dataSnapshot.getValue(Comic.class);
-                    for(String category: comic.getCategory()){
-                        if (!categories.contains(category)) categories.add(category);
-                    }
+                    List<String> categories = comic.getCategory();
+                    if (categories != null)
+                        for(String category: categories){
+                            if (!categories.contains(category)) categories.add(category);
+                        }
                 }
                 categoryAdapter.notifyDataSetChanged();
             }

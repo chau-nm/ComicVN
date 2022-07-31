@@ -61,7 +61,7 @@
             android:layout_height="125dp"
             android:padding="40dp"
             android:background="@drawable/delete_btn_red"
-            android:src="@drawable/ic_baseline_clear_24"
+            android:src="@drawable/ic_baseline_clear_50"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
