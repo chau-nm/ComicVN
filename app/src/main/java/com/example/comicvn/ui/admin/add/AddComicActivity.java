@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -110,9 +111,17 @@ public class AddComicActivity extends AppCompatActivity {
     @SuppressLint("NotifyDataSetChanged")
     private void addCategoryEvent(){
         String category = categoryEt.getText().toString();
-        categories.add(category);
-        categoryEt.setText("");
-        categoryAdapter.notifyDataSetChanged();
+        if(!category.equals("")){
+            categories.add(category);
+            categoryEt.setText("");
+            categoryAdapter.notifyDataSetChanged();
+        }else{
+            new AlertDialog.Builder(AddComicActivity.this)
+                    .setTitle("Lời nhắc")
+                    .setMessage("Bạn đang bỏ trống ô thể loại kìa")
+                    .setPositiveButton("OK", (dialogInterface, i) -> {})
+                    .show();
+        }
     }
 
     private void openFileChose(){
