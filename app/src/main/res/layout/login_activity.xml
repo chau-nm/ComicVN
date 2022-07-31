@@ -65,13 +65,13 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/custom_button"
+                android:background="@drawable/btn_normal"
                 android:paddingLeft="16dp"
                 android:paddingTop="8dp"
                 android:paddingRight="16dp"
                 android:paddingBottom="8dp"
                 android:text="@string/menu_login"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -79,31 +79,16 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:background="@drawable/custom_button"
+                android:background="@drawable/btn_normal"
                 android:paddingLeft="16dp"
                 android:paddingTop="8dp"
                 android:paddingRight="16dp"
                 android:paddingBottom="8dp"
                 android:text="@string/register_account"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="20sp" />
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="OR" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/login_with_facebook_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/custom_button_facebook"
-            android:text="Đằng nhập bằng facebook"
-            android:textColor="#fff" />
     </LinearLayout>
 
 </LinearLayout>
