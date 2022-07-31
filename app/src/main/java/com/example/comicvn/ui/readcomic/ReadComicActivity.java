@@ -128,6 +128,7 @@ public class ReadComicActivity extends AppCompatActivity {
             pages.addAll(chapter.getPages());
             toolbar.setTitle("Chapter " + chapter.getNumber());
             pageAdapter.notifyDataSetChanged();
+            pagesView.scrollToPosition(0);
         }
     }
 
@@ -141,6 +142,7 @@ public class ReadComicActivity extends AppCompatActivity {
             pages.addAll(chapter.getPages());
             toolbar.setTitle("Chapter " + chapter.getNumber());
             pageAdapter.notifyDataSetChanged();
+            pagesView.scrollToPosition(0);
         }
 
     }
