@@ -68,6 +68,8 @@ public class HistoryFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                comics.clear();
+                chapters.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Comic comic = dataSnapshot.getValue(Comic.class);
                     if(history.containsKey(comic.getId())){
