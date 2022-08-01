@@ -25,7 +25,7 @@ public class Caculation {
                 else message = days + " ngày trước";
             }
         }else{
-            message = date.getDay() + "/" + date.getMonth() + "/" + date.getYear();
+            message = date.getDate() + "/" + date.getMonth() + "/" + (date.getYear() + 1900);
         }
 
         return message;
