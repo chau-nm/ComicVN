@@ -55,6 +55,7 @@ public class HistoryFragment extends Fragment {
         chapters = new ArrayList<>();
         comicAdapter = new ComicAdapter(comics, chapters, this.getContext());
         comicsView = view.findViewById(R.id.comics_view);
+        comicsView.setNestedScrollingEnabled(false);
         comicsView.setAdapter(comicAdapter);
         comicsView.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
     }
