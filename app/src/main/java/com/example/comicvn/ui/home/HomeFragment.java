@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadDataForYou(){
-        Query query = databaseReference.orderByChild("view").limitToFirst(10);
+        Query query = databaseReference.limitToFirst(5);
         query.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
