@@ -73,7 +73,7 @@ public class ComicDetailActivity extends AppCompatActivity {
         categoriesView.setNestedScrollingEnabled(false);
         chaptersView = findViewById(R.id.chapters_view);
         chaptersView.setNestedScrollingEnabled(false);
-        chaptersView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        chaptersView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, true));
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

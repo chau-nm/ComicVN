@@ -56,10 +56,12 @@ public class CategoryFragment extends Fragment {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d("TAG", snapshot.toString());
+                comics.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Comic comic = dataSnapshot.getValue(Comic.class);
-                    if(comic.getCategory().contains(category)) comics.add(comic);
+                    if(comic.getCategory() != null
+                            && comic.getCategory().contains(category))
+                        comics.add(comic);
                 }
                 comicAdapter.notifyDataSetChanged();
             }
