@@ -69,7 +69,7 @@ public class ComicDetailActivity extends AppCompatActivity {
         comicCoverIV = findViewById(R.id.comic_cover);
         startFirstChapBtn = findViewById(R.id.start_first_chap_btn);
         categoriesView = findViewById(R.id.category_comic);
-        categoriesView.setLayoutManager(new GridLayoutManager(this, 3));
+        categoriesView.setLayoutManager(new GridLayoutManager(this, 2));
         categoriesView.setNestedScrollingEnabled(false);
         chaptersView = findViewById(R.id.chapters_view);
         chaptersView.setNestedScrollingEnabled(false);
