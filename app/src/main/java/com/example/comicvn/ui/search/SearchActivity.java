@@ -96,12 +96,4 @@ public class SearchActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search_menu, menu);
-        menu.findItem(R.id.action_search).setChecked(true);
-        super.onCreateOptionsMenu(menu);
-        return true;
-    }
 }
